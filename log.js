@@ -2,26 +2,28 @@ var moment = require('moment');
 var colors = require('colors');
 
 
-module.exports = log;
+module.exports = Log;
 
-function log () {};
-
-log.info = function info(app, msg) {
-  console.log("%s GMT - [%s] - INFO: %s".green, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
+function Log () {
+  if (!(this instanceof Log)) return new Log();
 };
 
-log.data = function data(app, msg) {
-  console.log("%s GMT - [%s] - INFO: %s".grey, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
+Log.prototype.info = function (app, msg) {
+  console.log('%s GMT - [%s] - INFO: %s'.green, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
 };
 
-log.warn = function warn(app, msg) {
-  console.log("%s GMT - [%s] - INFO: %s".yellow, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
+Log.prototype.data = function (app, msg) {
+  console.log('%s GMT - [%s] - INFO: %s'.grey, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
 };
 
-log.error = function error(app, msg) {
-  console.log("%s GMT - [%s] - INFO: %s".red, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
+Log.prototype.warn = function (app, msg) {
+  console.log('%s GMT - [%s] - INFO: %s'.yellow, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
 };
 
-log.debug = function debug(app, msg) {
-  console.log("%s GMT - [%s] - INFO: %s".blue, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
+Log.prototype.error = function (app, msg) {
+  console.log('%s GMT - [%s] - INFO: %s'.red, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
+};
+
+Log.prototype.debug = function (app, msg) {
+  console.log('%s GMT - [%s] - INFO: %s'.blue, moment.utc().format('YYYY-MM-DD HH:mm:ss:SSS'), app, msg);
 };
