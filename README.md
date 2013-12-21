@@ -9,4 +9,4 @@ example:
 
 var log = require('./log');
 
-log.info('app name', ['Hello', 'World', some_var].join(' '))
+log.info('app name', 'Hello World' + some_var);
