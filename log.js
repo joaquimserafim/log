@@ -2,7 +2,7 @@ var moment = require('moment');
 var colors = require('colors');
 
 
-module.exports = Log;
+module.exports = new Log();
 
 function Log () {
   if (!(this instanceof Log)) return new Log();
